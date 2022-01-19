@@ -14,9 +14,11 @@ public class ObjectPool : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
         var initInfo = new Dictionary<int, int>();
-        initInfo.Add(0, 10);
-        initInfo.Add(1, 10);
+        initInfo.Add(0, 10);//0¹ø ÇÁ¸®ÆÕ 10°³
+        initInfo.Add(1, 10);//1¹ø ÇÁ¸®ÆÕ 10°³
+
         Initialize(initInfo);
     }
 
@@ -73,7 +75,7 @@ public class ObjectPool : MonoBehaviour
 
         for (int i = 0; i < poolPrefab.Length; i++)
         {
-            var dic = new Queue<MonoBehaviour>();
+            var dic = dics[i];// new Queue<MonoBehaviour>();
             while(dic.Count > 0)
             {
                 var obj = dic.Dequeue();
